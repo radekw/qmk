@@ -19,7 +19,8 @@
 
 // Tap Dance declarations
 enum {
-    TD_MU,
+    TD_MI,
+    TD_PL,
 };
 
 enum preonic_layers {
@@ -39,15 +40,15 @@ enum preonic_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_preonic_grid(
-  QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    TD(TD_MU),  KC_0,            KC_BSPC,
-  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,       KC_P,            KC_BSLS,
-  LOWER,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,       RCTL_T(KC_SCLN), KC_ENT,
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,     KC_SLSH,         RSFT_T(KC_QUOT),
-  KC_LCTL, KC_LGUI, KC_LALT, QK_LEAD, LOWER,   KC_PMNS, KC_SPC,  RAISE,   KC_LEFT, KC_DOWN,    KC_UP,           RSFT_T(KC_RGHT)
+  QK_GESC,        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    TD(TD_MI), TD(TD_PL), KC_BSPC,
+  KC_TAB,         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,      KC_P,      KC_BSLS,
+  LCTL_T(KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,      KC_SCLN,   KC_ENT,
+  KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,    KC_SLSH,   RSFT_T(KC_QUOT),
+  KC_LCTL,        KC_LGUI, KC_LALT, QK_LEAD, LOWER,   KC_PMNS, KC_SPC,  RAISE,   KC_LEFT, KC_DOWN,   KC_UP,     RCTL_T(KC_RGHT)
 ),
 
 [_LOWER] = LAYOUT_preonic_grid(
-  KC_TILD, HYPR(KC_Q), HYPR(KC_W), HYPR(KC_E), HYPR(KC_R), HYPR(KC_T), HYPR(KC_Y), HYPR(KC_U), HYPR(KC_I), HYPR(KC_O), HYPR(KC_P), KC_DEL,
+  KC_TILD, MEH(KC_Q), MEH(KC_W), MEH(KC_E), MEH(KC_R), MEH(KC_T), MEH(KC_Y), MEH(KC_U), MEH(KC_I), MEH(KC_O), MEH(KC_P), KC_DEL,
   KC_TILD, KC_NO,   KC_PSCR, KC_HOME, KC_PGUP, KC_NO,   KC_PSLS, KC_P7, KC_P8, KC_P9,   KC_PMNS, KC_NO,
   KC_TRNS, KC_NO,   KC_NO,   KC_END,  KC_PGDN, KC_NO,   KC_PAST, KC_P4, KC_P5, KC_P6,   KC_PPLS, KC_DQUO,
   KC_NO,   KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO,   KC_P0,   KC_P1, KC_P2, KC_P3,   KC_EQL,  KC_NO,
@@ -136,7 +137,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_MU] = ACTION_TAP_DANCE_DOUBLE(KC_KP_MINUS, KC_UNDS),
+  [TD_MI] = ACTION_TAP_DANCE_DOUBLE(KC_9, KC_MINUS),
+  [TD_PL] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_PLUS),
 };
 
 bool muse_mode = false;
@@ -210,28 +212,16 @@ void matrix_scan_user(void) {
       SEND_STRING("{}" SS_TAP(X_LEFT));
     }
 
-    SEQ_ONE_KEY(KC_F) {
-      SEND_STRING("QMK is awesome.");
-    }
-
     SEQ_TWO_KEYS(KC_O, KC_K) {
-      send_unicode_string("👍");
+      SEND_STRING("+1");
     }
 
     SEQ_THREE_KEYS(KC_S, KC_M, KC_I) {
-      send_unicode_string("😊");
+      SEND_STRING(":)");
     }
 
     SEQ_THREE_KEYS(KC_S, KC_A, KC_D) {
-      send_unicode_string("😞");
-    }
-
-    SEQ_FOUR_KEYS(KC_P, KC_O, KC_O, KC_P) {
-      send_unicode_string("💩");
-    }
-
-    SEQ_THREE_KEYS(KC_S, KC_H, KC_R) {
-      send_unicode_string("¯\\_(ツ)_/¯");
+      SEND_STRING(":(");
     }
   }
 #ifdef AUDIO_ENABLE
