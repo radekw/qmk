@@ -46,3 +46,16 @@
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
+
+// caps word
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define CAPS_WORD_IDLE_TIMEOUT 1000
+
+// tap dance
+#define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
+
+// leader
+#define LEADER_TIMEOUT 500
+#define LEADER_PER_KEY_TIMING
+
