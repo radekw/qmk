@@ -55,3 +55,8 @@
 #define LEADER_TIMEOUT 500
 #define LEADER_PER_KEY_TIMING
 
+// tap mpd
+#define IGNORE_MOD_TAP_INTERRUPT
+#define PERMISSIVE_HOLD
+#define RETRO_TAPPING
+
