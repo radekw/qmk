@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,   MEH(KC_Q), MEH(KC_W), MEH(KC_E), MEH(KC_R), KC_NO,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   KC_PSCR,
   KC_NO,   KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   LCA(KC_DEL),
   KC_NO,   KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_UP,   KC_NO,
-  KC_NO,   KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RGHT
+  KC_NO,   KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RGHT
 )
 };
 
