@@ -49,13 +49,9 @@
 
 // caps word
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define CAPS_WORD_IDLE_TIMEOUT 1000
+#define CAPS_WORD_IDLE_TIMEOUT 2500
 
-// leader
-#define LEADER_TIMEOUT 500
-#define LEADER_PER_KEY_TIMING
-
-// tap mpd
+// tap hold
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
