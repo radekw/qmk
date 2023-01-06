@@ -51,11 +51,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // caps word
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_IDLE_TIMEOUT 2500
 
 // tap mpd
 #define TAPPING_TERM 250
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
+
+// combos
+#define COMBO_TERM 40
+#define COMBO_ONLY_FROM_LAYER 0
 
