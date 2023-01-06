@@ -17,6 +17,13 @@
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
+enum combos {
+  Q_W_ESC,
+  J_K_ESC,
+  L_SCLN_ENT,
+  A_S_BSPC
+};
+
 enum {
     TD_ESC,
 };
@@ -36,30 +43,35 @@ enum preonic_keycodes {
   BACKLIT
 };
 
+const uint16_t PROGMEM q_w_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM j_k_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM l_scln_combo[] = {KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM a_s_combo[] = {KC_A, KC_S, COMBO_END};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_preonic_grid(
-  TD(TD_ESC), KC_1,        KC_2,    KC_3,     KC_4,       KC_5,   KC_6,   KC_7,       KC_8,    KC_9,    KC_0,           KC_MINS,
-  KC_TAB,     KC_Q,        KC_W,    KC_E,     KC_R,       KC_T,   KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,           KC_BSLS,
-  KC_BSPC,    KC_A,        KC_S,    KC_D,     LT(1,KC_F), KC_G,   KC_H,   LT(2,KC_J), KC_K,    KC_L,    KC_SCLN,        KC_QUOT,
-  KC_LSFT,    CTL_T(KC_Z), KC_X,    KC_C,     LT(4,KC_V), KC_B,   KC_N,   KC_M,       KC_COMM, KC_DOT,  CTL_T(KC_SLSH), SC_SENT,
-  KC_LCTL,    KC_NO,       KC_LALT, MO(_NAV), LOWER,      KC_ENT, KC_SPC, RAISE,      KC_BSPC, KC_LGUI, KC_NO,          KC_NO
+  TD(TD_ESC), KC_1,         KC_2,    KC_3,     KC_4,       KC_5,   KC_6,   KC_7,       KC_8,    KC_9,    KC_0,            KC_MINS,
+  KC_TAB,     KC_Q,         KC_W,    KC_E,     KC_R,       KC_T,   KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,            KC_BSLS,
+  KC_BSPC,    RSFT_T(KC_A), KC_S,    KC_D,     LT(1,KC_F), KC_G,   KC_H,   LT(2,KC_J), KC_K,    KC_L,    RSFT_T(KC_SCLN), KC_QUOT,
+  KC_LSFT,    LCTL_T(KC_Z), KC_X,    KC_C,     LT(4,KC_V), KC_B,   KC_N,   KC_M,       KC_COMM, KC_DOT,  RCTL_T(KC_SLSH), SC_SENT,
+  KC_LCTL,    KC_NO,        KC_LALT, MO(_NAV), LOWER,      KC_ENT, KC_SPC, RAISE,      KC_DEL, KC_LGUI, KC_NO,            KC_NO
 ),
 
 [_LOWER] = LAYOUT_preonic_grid(
   KC_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,   KC_NO, KC_NO,  KC_LPRN, KC_RPRN, KC_BSPC,
-  KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_PSLS, KC_P7, KC_P8,  KC_P9,   KC_PMNS, KC_NO,
-  KC_DEL,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_PAST, KC_P4, KC_P5,  KC_P6,   KC_PPLS, KC_NO,
-  KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_P0,   KC_P1, KC_P2,  KC_P3,   KC_EQL,  KC_NO,
+  KC_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_PSLS, KC_P7, KC_P8,  KC_P9,   KC_PMNS, KC_TILD,
+  KC_DEL,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_PAST, KC_P4, KC_P5,  KC_P6,   KC_PPLS, KC_DOT,
+  KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_P0,   KC_P1, KC_P2,  KC_P3,   KC_EQL,  KC_DOT,
   KC_NO,   KC_NO, KC_NO, KC_NO, LOWER, KC_ENT, KC_SPC,  RAISE, KC_DEL, KC_NO,   KC_NO,   KC_NO
 ),
 
 [_RAISE] = LAYOUT_preonic_grid (
-  KC_GRV,    KC_NO,   KC_NO,   KC_LT,   KC_GT,   KC_NO,  KC_NO,  KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_DEL,
-  A(KC_TAB), KC_NO,   KC_NO,   KC_LPRN, KC_RPRN, KC_NO,  KC_NO,  KC_LPRN, KC_RPRN, KC_NO,   KC_NO,   KC_NO,
-  KC_NO,     KC_PMNS, KC_PLUS, KC_LBRC, KC_RBRC, KC_NO,  KC_NO,  KC_LBRC, KC_RBRC, KC_PMNS, KC_PLUS, KC_NO,
-  KC_DEL,    KC_UNDS, KC_EQL,  KC_LCBR, KC_RCBR, KC_NO,  KC_NO,  KC_LCBR, KC_RCBR, KC_UNDS, KC_EQL,  KC_NO,
-  KC_NO,     KC_NO,   KC_NO,   KC_NO,   LOWER,   KC_ENT, KC_SPC, RAISE,   KC_DEL,  KC_NO,   KC_NO,   KC_NO
+  KC_GRV, KC_NO,   KC_NO,   KC_LT,   KC_GT,   KC_NO,  KC_NO,  KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_DEL,
+  KC_GRV, KC_NO,   KC_NO,   KC_LPRN, KC_RPRN, KC_NO,  KC_NO,  KC_LPRN, KC_RPRN, KC_NO,   KC_NO,   KC_GRV,
+  KC_NO,  KC_PMNS, KC_PLUS, KC_LBRC, KC_RBRC, KC_NO,  KC_NO,  KC_LBRC, KC_RBRC, KC_PMNS, KC_PLUS, KC_NO,
+  KC_DEL, KC_UNDS, KC_EQL,  KC_LCBR, KC_RCBR, KC_NO,  KC_NO,  KC_LCBR, KC_RCBR, KC_UNDS, KC_EQL,  KC_NO,
+  KC_NO,  KC_NO,   KC_NO,   KC_NO,   LOWER,   KC_ENT, KC_SPC, RAISE,   KC_DEL,  KC_NO,   KC_NO,   KC_NO
 ),
 
 [_ADJUST] = LAYOUT_preonic_grid(
@@ -226,5 +238,13 @@ bool music_mask_user(uint16_t keycode) {
 // tap dance actions
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
+};
+
+// combos
+combo_t key_combos[COMBO_COUNT] = {
+  [Q_W_ESC] = COMBO(q_w_combo, KC_ESC),
+  [J_K_ESC] = COMBO(j_k_combo, KC_ESC),
+  [L_SCLN_ENT] = COMBO(l_scln_combo, KC_ENT),
+  [A_S_BSPC] = COMBO(a_s_combo, KC_BSPC),
 };
 

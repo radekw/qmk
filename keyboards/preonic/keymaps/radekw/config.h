@@ -55,3 +55,6 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
+// combos
+#define COMBO_COUNT 4
+
