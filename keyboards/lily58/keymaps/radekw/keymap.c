@@ -2,9 +2,13 @@
 #include <stdio.h>
 #include "g/keymap_combo.h"
 
+#define G_C_L G(C(KC_LEFT))
+#define G_C_R G(C(KC_RIGHT))
+#define A_C_D LCA(KC_DEL)
+
 // tap dance actions
 enum {
-  TD_ESC,
+    TD_ESC,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
@@ -24,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,  KC_1,         KC_2, KC_3,    KC_4,     KC_5,                         KC_6,       KC_7,   KC_8,    KC_9,   KC_0,            KC_MINS,
   KC_TAB,  KC_Q,         KC_W, KC_E,    KC_R,     KC_T,                         KC_Y,       KC_U,   KC_I,    KC_O,   KC_P,            KC_BSLS,
   KC_BSPC, LSFT_T(KC_A), KC_S, KC_D,    KC_F,     KC_G,                         KC_H,       KC_J,   KC_K,    KC_L,   RSFT_T(KC_SCLN), KC_QUOT,
-  KC_LSFT, LCTL_T(KC_Z), KC_X, KC_C,    KC_V,     KC_B,       KC_LBRC, KC_RBRC, KC_N,       KC_M,   KC_COMM, KC_DOT, RCTL_T(KC_SLSH), SC_SENT,
+  KC_LSFT, LCTL_T(KC_Z), KC_X, KC_C,    KC_V,     KC_B,       KC_LCTL, KC_RCTL, KC_N,       KC_M,   KC_COMM, KC_DOT, RCTL_T(KC_SLSH), SC_SENT,
                                KC_LALT, MO(_NAV), MO(_LOWER), KC_ENT,  KC_SPC,  MO(_RAISE), KC_DEL, KC_LGUI
 ),
 
@@ -53,11 +57,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_NAV] = LAYOUT(
-  KC_F12,    KC_F1,     KC_F2,      KC_F3,         KC_F4,          KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,
-  G(KC_TAB), KC_NO,     KC_UP,      G(C(KC_LEFT)), G(C(KC_RIGHT)), KC_NO,                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,  KC_PSCR,
-  KC_DEL,    KC_LEFT,   KC_DOWN,    KC_RIGHT,      KC_NO,          KC_NO,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,  LCA(KC_DEL),
-  KC_NO,     KC_NO,     G(KC_PGDN), G(KC_PGUP),    C(KC_V),        KC_NO,   KC_TRNS, KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO,  KC_NO,
-                                    KC_TRNS,       KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+  KC_F12,    KC_F1,   KC_F2,      KC_F3,      KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,
+  G(KC_TAB), KC_NO,   KC_UP,      G_C_L,      G_C_R,   KC_NO,                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,  KC_PSCR,
+  KC_DEL,    KC_LEFT, KC_DOWN,    KC_RIGHT,   KC_NO,   KC_NO,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,  A_C_D,
+  KC_NO,     KC_NO,   G(KC_PGDN), G(KC_PGUP), KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO,  KC_NO,
+                                  KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 )
 };
 
