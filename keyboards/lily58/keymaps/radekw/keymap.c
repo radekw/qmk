@@ -24,13 +24,20 @@ enum layer_number {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
- [_QWERTY] = LAYOUT(
-  KC_GRV,  KC_1,         KC_2, KC_3,    KC_4,     KC_5,                         KC_6,       KC_7,   KC_8,    KC_9,   KC_0,            KC_MINS,
-  KC_TAB,  KC_Q,         KC_W, KC_E,    KC_R,     KC_T,                         KC_Y,       KC_U,   KC_I,    KC_O,   KC_P,            KC_BSLS,
-  KC_BSPC, LSFT_T(KC_A), KC_S, KC_D,    KC_F,     KC_G,                         KC_H,       KC_J,   KC_K,    KC_L,   RSFT_T(KC_SCLN), KC_QUOT,
-  KC_LSFT, LCTL_T(KC_Z), KC_X, KC_C,    KC_V,     KC_B,       KC_LCTL, KC_RCTL, KC_N,       KC_M,   KC_COMM, KC_DOT, RCTL_T(KC_SLSH), SC_SENT,
-                               KC_LALT, MO(_NAV), MO(_LOWER), KC_ENT,  KC_SPC,  MO(_RAISE), KC_DEL, KC_LGUI
+[_QWERTY] = LAYOUT(
+  KC_GRV,  KC_1, KC_2, KC_3,    KC_4,     KC_5,                         KC_6,       KC_7,   KC_8,    KC_9,   KC_0,    KC_MINS,
+  KC_TAB,  KC_Q, KC_W, KC_E,    KC_R,     KC_T,                         KC_Y,       KC_U,   KC_I,    KC_O,   KC_P,    KC_BSLS,
+  KC_BSPC, KC_A, KC_S, KC_D,    KC_F,     KC_G,                         KC_H,       KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT,
+  KC_LSFT, KC_Z, KC_X, KC_C,    KC_V,     KC_B,       KC_LCTL, KC_RCTL, KC_N,       KC_M,   KC_COMM, KC_DOT, KC_SLSH, SC_SENT,
+                       KC_LALT, MO(_NAV), MO(_LOWER), KC_ENT,  KC_SPC,  MO(_RAISE), KC_DEL, KC_LGUI
 ),
+// [_QWERTY] = LAYOUT(
+//   KC_GRV,  KC_1,         KC_2, KC_3,    KC_4,     KC_5,                         KC_6,       KC_7,   KC_8,    KC_9,   KC_0,            KC_MINS,
+//   KC_TAB,  KC_Q,         KC_W, KC_E,    KC_R,     KC_T,                         KC_Y,       KC_U,   KC_I,    KC_O,   KC_P,            KC_BSLS,
+//   KC_BSPC, LSFT_T(KC_A), KC_S, KC_D,    KC_F,     KC_G,                         KC_H,       KC_J,   KC_K,    KC_L,   RSFT_T(KC_SCLN), KC_QUOT,
+//   KC_LSFT, LCTL_T(KC_Z), KC_X, KC_C,    KC_V,     KC_B,       KC_LCTL, KC_RCTL, KC_N,       KC_M,   KC_COMM, KC_DOT, RCTL_T(KC_SLSH), SC_SENT,
+//                                KC_LALT, MO(_NAV), MO(_LOWER), KC_ENT,  KC_SPC,  MO(_RAISE), KC_DEL, KC_LGUI
+// ),
 
 [_LOWER] = LAYOUT(
   KC_ESC, KC_NO, KC_NO,  KC_NO,   KC_NO,   KC_NO,                      KC_NO,      KC_NO,   KC_NO, KC_LPRN, KC_RPRN, KC_BSPC,
