@@ -1,13 +1,14 @@
 CAPS_WORD_ENABLE = yes
-KEY_OVERRIDE_ENABLE = yes
-TAP_DANCE_ENABLE = yes
+KEY_OVERRIDE_ENABLE = no
+TAP_DANCE_ENABLE = no
 COMBO_ENABLE = yes
+WPM_ENABLE = yes
 
 OLED_ENABLE = yes
 
 BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
 MOUSEKEY_ENABLE = no        # Mouse keys
-EXTRAKEY_ENABLE = no        # Audio control and System control
+EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
 NKRO_ENABLE = no

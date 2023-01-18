@@ -10,14 +10,6 @@
 #define MT_S_A LSFT_T(KC_A)
 #define MT_S_SCLN RSFT_T(KC_SCLN)
 
-// tap dance actions
-enum {
-    TD_ESC,
-};
-qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
-};
-
 enum preonic_layers {
   _QWERTY,
   _LOWER,
@@ -74,15 +66,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,     KC_NO,   KC_NO,      KC_NO,      KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_UP,   KC_NO,
   KC_NO,     KC_NO,   G(KC_PGDN), G(KC_PGUP), KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RGHT
 )
-};
-
-// key overrides
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-
-// This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_key_override,
-    NULL // Null terminate the array of overrides!
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
