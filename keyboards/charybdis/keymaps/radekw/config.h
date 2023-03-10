@@ -16,14 +16,6 @@
  */
 #pragma once
 
-#ifdef VIA_ENABLE
-/* VIA configuration. */
-#    define DYNAMIC_KEYMAP_LAYER_COUNT 4
-#endif // VIA_ENABLE
-
-/* Disable unused features. */
-#define NO_ACTION_ONESHOT
-
 /* Charybdis-specific features. */
 
 #ifdef POINTING_DEVICE_ENABLE
@@ -32,6 +24,7 @@
 // - `CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD`
 // #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #endif // POINTING_DEVICE_ENABLE
+#define MOUSE_EXTENDED_REPORT
 
 // caps word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
