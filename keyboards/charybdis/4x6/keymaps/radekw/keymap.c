@@ -18,9 +18,7 @@ enum charybdis_keymap_layers {
 
 enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
-    KC_COLE,
-    VIM_WA,
-    VIM_QA
+    KC_COLE
 };
 
 /* Automatically enable sniping-mode on the pointer layer. */
@@ -203,21 +201,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 set_single_persistent_default_layer(LAYER_QWERTY);
             }
             return false;
+            break;
         case KC_COLE:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(LAYER_COLEMAKDH);
             }
             return false;
-        /* MACROS START */
-        case VIM_WA:
-            if (record->event.pressed) {
-                SEND_STRING(":wa\n");
-            }
-            break;
-        case VIM_QA:
-            if (record->event.pressed) {
-                SEND_STRING(":qa\n");
-            }
             break;
     }
     return true;

@@ -4,31 +4,16 @@ COMB(del,      KC_DEL,          KC_D, KC_F)
 COMB(esc,      KC_ESC,          KC_J, KC_K)
 COMB(esc2,     KC_ESC,          KC_GRV, KC_1)
 COMB(ent,      KC_ENT,          KC_K, KC_L)
-COMB(pgup,     KC_PGUP,         KC_9, KC_0)
-COMB(pgdn,     KC_PGDN,         KC_O, KC_P)
-COMB(pghome,   KC_HOME,         KC_I, KC_O, KC_P)
-COMB(pgend,    KC_END,          KC_O, KC_P, KC_BSLS)
-COMB(up,       KC_UP,           KC_1, KC_2)
-COMB(down,     KC_DOWN,         KC_Q, KC_W)
-COMB(left,     KC_LEFT,         KC_TAB, KC_Q, KC_W)
-COMB(right,    KC_RIGHT,        KC_Q, KC_W, KC_E)
 
 // symbols
-COMB(exlm,     KC_EXLM,         KC_1, KC_TAB)
-COMB(at,       KC_AT,           KC_2, KC_Q)
-COMB(hash,     KC_HASH,         KC_3, KC_W)
-COMB(dlr,      KC_DLR,          KC_4, KC_E)
-COMB(perc,     KC_PERC,         KC_5, KC_R)
-COMB(circ,     KC_CIRC,         KC_6, KC_U)
-COMB(ampr,     KC_AMPR,         KC_7, KC_I)
-COMB(astr,     KC_ASTR,         KC_8, KC_O)
-COMB(pipe,     KC_PIPE,         KC_P, KC_BSLS)
-
-// signs
 COMB(pmns,     KC_PMNS,         KC_I, KC_O)
 COMB(unds,     KC_UNDS,         KC_U, KC_I, KC_O)
 COMB(plus,     KC_PLUS,         KC_U, KC_I)
 COMB(eql,      KC_EQL,          KC_U, KC_O)
+COMB(grave,    KC_GRV,          KC_A, KC_S)
+COMB(tilde,    KC_TILD,         KC_A, KC_D)
+COMB(bsls,     KC_BSLS,         KC_L, KC_SCLN)
+COMB(pipe,     KC_PIPE,         KC_K, KC_SCLN)
 
 // parens and brackets
 COMB(lprn,     KC_LPRN,         KC_X, KC_C)
@@ -40,33 +25,10 @@ COMB(rcbr,     KC_RCBR,         KC_M, KC_DOT)
 COMB(lt,       KC_LT,           KC_X, KC_C, KC_V)
 COMB(gt,       KC_GT,           KC_M, KC_COMM, KC_DOT)
 
-// os actions
-COMB(ctrl_z,   C(KC_Z),         KC_BSPC, KC_Z)
-COMB(ctrl_x,   C(KC_X),         KC_A, KC_X)
-COMB(ctrl_c,   C(KC_C),         KC_S, KC_C)
-COMB(ctrl_v,   C(KC_V),         KC_D, KC_V)
-COMB(ctrl_f,   C(KC_F),         KC_E, KC_F)
-COMB(ctrl_d,   C(KC_D),         KC_W, KC_D)
-COMB(ctrl_b,   C(KC_B),         KC_F, KC_B)
-COMB(ctrl_g,   C(KC_G),         KC_R, KC_G)
-COMB(ctrl_r,   C(KC_R),         KC_3, KC_R)
-COMB(ctrl_t,   C(KC_T),         KC_4, KC_T)
-COMB(ctrl_a,   C(KC_A),         KC_TAB, KC_A)
-COMB(ctrl_e,   C(KC_E),         KC_2, KC_E)
-COMB(ctrl_n,   C(KC_N),         KC_J, KC_N)
-COMB(ctrl_l,   C(KC_L),         KC_P, KC_L)
-COMB(ctrl_o,   C(KC_O),         KC_0, KC_O)
-COMB(ctrl_p,   C(KC_P),         KC_MINS, KC_P)
-COMB(ctrl_w,   C(KC_W),         KC_1, KC_W)
+// tmux prefix
 COMB(ctrl_u,   C(KC_U),         KC_8, KC_U)
 
 // vim
-SUBS(viwa,    ":wa\n",          KC_V, KC_W)
-SUBS(viqa,    ":qa\n",          KC_V, KC_Q)
-
-// mods
-COMB(lsft,     KC_LSFT,         KC_BSPC, KC_A)
-COMB(rsft,     KC_RSFT,         KC_SCLN, KC_QUOT)
-COMB(lctl,     KC_LCTL,         KC_A, KC_S)
-COMB(rctl,     KC_RCTL,         KC_L, KC_SCLN)
+SUBS(viwa,    ":wa\n",          KC_V, KC_S)
+SUBS(viqa,    ":xa\n",          KC_V, KC_A)
 
