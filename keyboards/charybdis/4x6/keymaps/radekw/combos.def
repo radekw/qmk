@@ -1,3 +1,6 @@
+// kludge
+COMB(l_sym,    MO(4),           LT(2, KC_BSPC), KC_SPC)
+
 // navigation
 COMB(bspc,     KC_BSPC,         KC_S, KC_D)
 COMB(del,      KC_DEL,          KC_D, KC_F)

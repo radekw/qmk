@@ -113,9 +113,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LAYER_SYM] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LPRN, KC_RPRN, KC_AMPR, KC_ASTR, KC_PIPE,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_LPRN, KC_RPRN, KC_AMPR, KC_ASTR, KC_PIPE, KC_TILD,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LBRC, KC_RBRC,  KC_DLR, KC_PERC, KC_CIRC,   KC_NO,      KC_NO, KC_RSFT,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_LBRC, KC_RBRC,  KC_DLR, KC_PERC, KC_CIRC,  KC_GRV,      KC_NO, KC_RSFT,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCBR, KC_RCBR, KC_EXLM,   KC_AT, KC_HASH,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
