@@ -10,5 +10,8 @@ COMBO_ENABLE = yes
 CONSOLE_ENABLE = no
 EXTRAKEY_ENABLE = yes
 
+MOUSE_ENABLE = yes
+
 VPATH += keyboards/gboards
 
+SRC += features/orbital_mouse.c
