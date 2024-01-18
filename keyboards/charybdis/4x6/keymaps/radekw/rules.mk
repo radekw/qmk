@@ -1,3 +1,9 @@
+SRC += features/orbital_mouse.c
+
+POINTING_DEVICE_ENABLE = no
+
+MOUSE_ENABLE = yes
+
 RGB_MATRIX_SUPPORTED = no
 RGBLIGHT_SUPPORTED = no
 RGB_MATRIX_ENABLE = no
@@ -10,8 +16,4 @@ COMBO_ENABLE = yes
 CONSOLE_ENABLE = no
 EXTRAKEY_ENABLE = yes
 
-MOUSE_ENABLE = yes
-
 VPATH += keyboards/gboards
-
-SRC += features/orbital_mouse.c

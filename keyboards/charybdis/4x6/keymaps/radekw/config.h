@@ -91,3 +91,9 @@
   #define U_UND KC_UNDO
 #endif
 
+#define ORBITAL_MOUSE_RADIUS        48
+#define ORBITAL_MOUSE_WHEEL_SPEED   0.2
+#define ORBITAL_MOUSE_DBL_DELAY_MS  50
+#define ORBITAL_MOUSE_SPEED_CURVE \
+      {20, 21, 23, 27, 32, 38, 46, 55, 64, 64, 64, 64, 64, 64, 64, 64}
+
