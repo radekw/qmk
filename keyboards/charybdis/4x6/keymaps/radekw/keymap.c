@@ -1,11 +1,10 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "g/keymap_combo.h"
-#include "features/orbital_mouse.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-#    include "timer.h"
-#endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+#include "timer.h"
+#endif
 
 enum charybdis_keymap_layers {
     LAYER_QWERTY = 0,
@@ -21,43 +20,12 @@ enum charybdis_keymap_layers {
 enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
     KC_COLE,
-    KC_GAME
+    KC_GAME,
 };
-
-/* Automatically enable sniping-mode on the pointer layer. */
-#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
-#    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
-#    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-#    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
-#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD 8
-#    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
-#endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-
-#ifndef POINTING_DEVICE_ENABLE
-#    define DRGSCRL KC_NO
-#    define DPI_MOD KC_NO
-#    define DPI_RMOD KC_NO
-#    define S_D_MOD KC_NO
-#    define S_D_RMOD KC_NO
-#    define SNIPING KC_NO
-#endif // !POINTING_DEVICE_ENABLE
-
-#define L_NAV   LT(LAYER_NAV, KC_ESC)
-#define L_NUM   LT(LAYER_NUM, KC_TAB)
-#define L_FN    LT(LAYER_FN, KC_BSPC)
-#define L_SYM   LT(LAYER_SYM, KC_DEL)
-#define PT_Q    LT(LAYER_POINTER, KC_Q)
-#define PT_P    LT(LAYER_POINTER, KC_P)
-#define PT_SCLN LT(LAYER_POINTER, KC_SCLN)
-
-#define A_C_D   LCA(KC_DEL)
-#define A_C_TAB LCA(KC_TAB)
-#define C_Z     LCTL_T(KC_Z)
-#define C_SLSH  RCTL_T(KC_SLSH)
+#endif
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -65,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
     KC_TAB,   PT_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
-    KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,       KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,       KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  PT_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
                                   L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
                                             KC_LALT,  KC_LGUI,    L_SYM
@@ -75,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
     KC_TAB,   PT_Q,     KC_W,     KC_F,     KC_P,     KC_B,       KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_BSLS,
-    KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,       KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
+    KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,       KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     PT_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_D,     KC_V,       KC_K,     KC_H,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
                                   L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
                                             KC_LALT,  KC_LGUI,    L_SYM
@@ -103,10 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NUM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_NUM,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NUM,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_BSPC,
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_PMNS,  KC_P7,    KC_P8,    KC_P9,    KC_PSLS,  KC_COMM,
-    KC_NO,    KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_PPLS,  KC_P4,    KC_P5,    KC_P6,    KC_PAST,  KC_DOT,
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_EQL,   KC_P1,    KC_P2,    KC_P3,    KC_P0,    KC_DOT,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_BSPC,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      NUM_MIN,  KC_7,     KC_8,     KC_9,     NUM_DIV,  KC_COMM,
+    KC_NO,    KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      NUM_PLS,  KC_4,     KC_5,     KC_6,     NUM_AST,  KC_DOT,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      NUM_EQL,  KC_1,     KC_2,     KC_3,     KC_0,     KC_DOT,
                                   KC_DOT,   KC_TRNS,  KC_TRNS,    KC_DOT,   KC_SPC,
                                             KC_TRNS,  KC_TRNS,    KC_COMM
   ),
@@ -134,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_POINTER] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     XXXXXXX,  DPI_RMOD, DPI_MOD,  XXXXXXX,  S_D_RMOD, S_D_MOD,    S_D_RMOD, S_D_MOD,  XXXXXXX,  DPI_RMOD, DPI_MOD,  XXXXXXX,
-    S_D_MOD,  _______,  DRGSCRL,  KC_BTN3,  KC_BTN1,  KC_BTN2,    OM_DBLS,  OM_BTNS,  OM_U,     OM_BTN2,  OM_SEL1,  XXXXXXX,
-    S_D_RMOD, KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  DRGSCRL,    OM_HLDS,  OM_L,     OM_D,     OM_R,     OM_SEL2,  XXXXXXX,
-    EE_CLR,   XXXXXXX,  XXXXXXX,  KC_BTN4,  KC_BTN5,  SNIPING,    OM_RELS,  OM_W_D,   OM_W_U,   OM_BTN3,  OM_SEL3,  XXXXXXX,
-                                  KC_BTN3,  KC_BTN1,  KC_BTN2,    KC_BTN2,  KC_BTN1,
-                                            KC_BTN4,  KC_BTN5,    KC_BTN3
+    S_D_MOD,  _______,  DRGSCRL,  KC_BTN3,  KC_BTN1,  KC_BTN2,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
+    S_D_RMOD, KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  DRGSCRL,    KC_NO,    KC_BTN4,  KC_BTN5,  SNIPING,  DRGSCRL,  _______,
+    EE_CLR,   XXXXXXX,  XXXXXXX,  KC_BTN4,  KC_BTN5,  SNIPING,    KC_NO,    KC_BTN1,  KC_BTN3,  KC_BTN2,  KC_NO,    XXXXXXX,
+                                  KC_BTN3,  KC_BTN1,  KC_BTN2,    KC_NO,    KC_NO,
+                                            KC_BTN4,  KC_BTN5,    KC_NO
   ),
 };
 
@@ -159,7 +127,6 @@ void matrix_scan_user(void) {
         auto_pointer_layer_timer = 0;
         layer_off(LAYER_POINTER);
     }
-    orbital_mouse_task();
 }
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
@@ -169,11 +136,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
-#else
-void matrix_scan_user(void) {
-    orbital_mouse_task();
-}
-#endif     // POINTING_DEVICE_ENABLE
+#endif // POINTING_DEVICE_ENABLE
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -197,7 +160,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
     }
-    if (!process_orbital_mouse(keycode, record)) { return false; }
     return true;
 }
-

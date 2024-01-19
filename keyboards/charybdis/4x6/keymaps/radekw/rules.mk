@@ -1,8 +1,4 @@
-SRC += features/orbital_mouse.c
-
-POINTING_DEVICE_ENABLE = no
-
-MOUSE_ENABLE = yes
+POINTING_DEVICE_ENABLE = yes
 
 RGB_MATRIX_SUPPORTED = no
 RGBLIGHT_SUPPORTED = no

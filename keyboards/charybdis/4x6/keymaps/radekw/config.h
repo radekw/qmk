@@ -1,30 +1,43 @@
-/**
- * Copyright 2021 Charly Delay <charly@codesink.dev> (@0xcharly)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 #pragma once
 
-/* Charybdis-specific features. */
+#define MOUSE_EXTENDED_REPORT
 
 #ifdef POINTING_DEVICE_ENABLE
-// Automatically enable the pointer layer when moving the trackball.  See also:
-// - `CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS`
-// - `CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD`
+// Automatically enable the pointer layer when moving the trackball.
 // #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+// #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
+// #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD 1
+
+// Automatically enable sniping-mode on the pointer layer.
+#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
+
+#else // !POINTING_DEVICE_ENABLE
+#    define DRGSCRL KC_NO
+#    define DPI_MOD KC_NO
+#    define DPI_RMOD KC_NO
+#    define S_D_MOD KC_NO
+#    define S_D_RMOD KC_NO
+#    define SNIPING KC_NO
 #endif // POINTING_DEVICE_ENABLE
-#define MOUSE_EXTENDED_REPORT
+
+// layer keys
+#define L_NAV   LT(LAYER_NAV, KC_ESC)
+#define L_NUM   LT(LAYER_NUM, KC_TAB)
+#define L_FN    LT(LAYER_FN, KC_BSPC)
+#define L_SYM   LT(LAYER_SYM, KC_DEL)
+#define PT_Q    LT(LAYER_POINTER, KC_Q)
+#define PT_QUOT LT(LAYER_POINTER, KC_QUOT)
+
+// shortcuts
+#define A_C_D   LCA(KC_DEL)
+#define A_C_TAB LCA(KC_TAB)
+#define C_Z     LCTL_T(KC_Z)
+#define C_SLSH  RCTL_T(KC_SLSH)
+#define NUM_EQL KC_EQL
+#define NUM_PLS LSFT(KC_EQL)
+#define NUM_MIN  KC_MINS
+#define NUM_AST  LSFT(KC_8)
+#define NUM_DIV  KC_SLSH
 
 // caps word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
@@ -91,9 +104,7 @@
   #define U_UND KC_UNDO
 #endif
 
-#define ORBITAL_MOUSE_RADIUS        48
-#define ORBITAL_MOUSE_WHEEL_SPEED   0.2
-#define ORBITAL_MOUSE_DBL_DELAY_MS  50
-#define ORBITAL_MOUSE_SPEED_CURVE \
-      {20, 21, 23, 27, 32, 38, 46, 55, 64, 64, 64, 64, 64, 64, 64, 64}
-
+//#define ORBITAL_MOUSE_RADIUS       48
+//#define ORBITAL_MOUSE_WHEEL_SPEED  0.2
+//#define ORBITAL_MOUSE_DBL_DELAY_MS 50
+//#define ORBITAL_MOUSE_SPEED_CURVE  {20, 21, 23, 27, 32, 38, 46, 55, 64, 64, 64, 64, 64, 64, 64, 64}
