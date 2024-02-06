@@ -1,27 +1,32 @@
 // kludge
 COMB(l_sym,    MO(4),           LT(2, KC_BSPC), KC_SPC)
 
-// navigation
+// mouse buttons
 COMB(btn1,     KC_BTN1,         KC_W, KC_E)
 COMB(btn2,     KC_BTN2,         KC_E, KC_R)
 COMB(btn3,     KC_BTN3,         KC_W, KC_R)
-COMB(btn4,     KC_BTN4,         KC_2, KC_3)
-COMB(btn5,     KC_BTN5,         KC_3, KC_4)
-COMB(drgscrl,  DRGSCRL,         KC_2, KC_4)
-COMB(esc,      KC_ESC,          KC_J, KC_K)
+COMB(drgscrl,  DRGSCRL,         KC_W, KC_E, KC_R)
+COMB(sniping,  SNIPING,         KC_Q, KC_R)
+COMB(btn4,     KC_BTN4,         KC_Q, KC_W)
+COMB(btn5,     KC_BTN5,         KC_R, KC_T)
+//COMB(btn4,     KC_BTN4,         KC_2, KC_3)
+//COMB(btn5,     KC_BTN5,         KC_3, KC_4)
+
+// keys
+COMB(bspc,     KC_BSPC,         KC_S, KC_D)
+COMB(del,      KC_DEL,          KC_D, KC_F)
+COMB(esc1,     KC_ESC,          KC_J, KC_K)
 COMB(esc2,     KC_ESC,          KC_GRV, KC_1)
 COMB(ent,      KC_ENT,          KC_K, KC_L)
 
 // symbols
-COMB(grv,      KC_GRV,          KC_F, KC_G)
 COMB(pmns,     KC_PMNS,         KC_I, KC_O)
 COMB(unds,     KC_UNDS,         KC_U, KC_I, KC_O)
 COMB(plus,     KC_PLUS,         KC_U, KC_I)
 COMB(eql,      KC_EQL,          KC_U, KC_O)
-COMB(grave,    KC_GRV,          KC_A, KC_S)
-COMB(tilde,    KC_TILD,         KC_A, KC_D)
-COMB(bsls,     KC_BSLS,         KC_L, KC_SCLN)
-COMB(pipe,     KC_PIPE,         KC_K, KC_SCLN)
+COMB(grv,      KC_GRV,          KC_SCLN, KC_QUOT)
+COMB(tilde,    KC_TILD,         KC_L, KC_SCLN)
+COMB(pipe,     KC_PIPE,         KC_P, KC_BSLS)
 
 // parens and brackets
 COMB(lprn,     KC_LPRN,         KC_X, KC_C)
@@ -32,8 +37,8 @@ COMB(lt,       KC_LT,           KC_X, KC_C, KC_V)
 COMB(gt,       KC_GT,           KC_M, KC_COMM, KC_DOT)
 
 // tmux prefix
-COMB(ctrl_u1,   C(KC_U),         KC_U, KC_8)
-COMB(ctrl_u2,   C(KC_U),         KC_U, KC_P)
+COMB(ctrl_u1,  C(KC_U),         KC_U, KC_8)
+COMB(ctrl_u2,  C(KC_U),         KC_U, KC_P)
 
 // vim
 SUBS(viwa,    ":wa\n",          KC_V, KC_S)
