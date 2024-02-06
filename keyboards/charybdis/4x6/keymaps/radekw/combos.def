@@ -2,13 +2,18 @@
 COMB(l_sym,    MO(4),           LT(2, KC_BSPC), KC_SPC)
 
 // navigation
-COMB(bspc,     KC_BSPC,         KC_S, KC_D)
-COMB(del,      KC_DEL,          KC_D, KC_F)
+COMB(btn1,     KC_BTN1,         KC_W, KC_E)
+COMB(btn2,     KC_BTN2,         KC_E, KC_R)
+COMB(btn3,     KC_BTN3,         KC_W, KC_R)
+COMB(btn4,     KC_BTN4,         KC_2, KC_3)
+COMB(btn5,     KC_BTN5,         KC_3, KC_4)
+COMB(drgscrl,  DRGSCRL,         KC_2, KC_4)
 COMB(esc,      KC_ESC,          KC_J, KC_K)
 COMB(esc2,     KC_ESC,          KC_GRV, KC_1)
 COMB(ent,      KC_ENT,          KC_K, KC_L)
 
 // symbols
+COMB(grv,      KC_GRV,          KC_F, KC_G)
 COMB(pmns,     KC_PMNS,         KC_I, KC_O)
 COMB(unds,     KC_UNDS,         KC_U, KC_I, KC_O)
 COMB(plus,     KC_PLUS,         KC_U, KC_I)
@@ -23,13 +28,12 @@ COMB(lprn,     KC_LPRN,         KC_X, KC_C)
 COMB(rprn,     KC_RPRN,         KC_COMM, KC_DOT)
 COMB(lbrc,     KC_LBRC,         KC_C, KC_V)
 COMB(rbrc,     KC_RBRC,         KC_M, KC_COMM)
-COMB(lcbr,     KC_LCBR,         KC_X, KC_V)
-COMB(rcbr,     KC_RCBR,         KC_M, KC_DOT)
 COMB(lt,       KC_LT,           KC_X, KC_C, KC_V)
 COMB(gt,       KC_GT,           KC_M, KC_COMM, KC_DOT)
 
 // tmux prefix
-COMB(ctrl_u,   C(KC_U),         KC_8, KC_U)
+COMB(ctrl_u1,   C(KC_U),         KC_U, KC_8)
+COMB(ctrl_u2,   C(KC_U),         KC_U, KC_P)
 
 // vim
 SUBS(viwa,    ":wa\n",          KC_V, KC_S)

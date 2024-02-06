@@ -35,9 +35,9 @@
 #define C_SLSH  RCTL_T(KC_SLSH)
 #define NUM_EQL KC_EQL
 #define NUM_PLS LSFT(KC_EQL)
-#define NUM_MIN  KC_MINS
-#define NUM_AST  LSFT(KC_8)
-#define NUM_DIV  KC_SLSH
+#define NUM_MIN KC_MINS
+#define NUM_AST LSFT(KC_8)
+#define NUM_DIV KC_SLSH
 
 // caps word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
