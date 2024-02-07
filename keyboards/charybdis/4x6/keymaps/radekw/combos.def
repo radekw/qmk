@@ -9,8 +9,6 @@ COMB(drgscrl,  DRGSCRL,         KC_W, KC_E, KC_R)
 COMB(sniping,  SNIPING,         KC_Q, KC_R)
 COMB(btn4,     KC_BTN4,         KC_Q, KC_W)
 COMB(btn5,     KC_BTN5,         KC_R, KC_T)
-//COMB(btn4,     KC_BTN4,         KC_2, KC_3)
-//COMB(btn5,     KC_BTN5,         KC_3, KC_4)
 
 // keys
 COMB(bspc,     KC_BSPC,         KC_S, KC_D)
@@ -33,6 +31,8 @@ COMB(lprn,     KC_LPRN,         KC_X, KC_C)
 COMB(rprn,     KC_RPRN,         KC_COMM, KC_DOT)
 COMB(lbrc,     KC_LBRC,         KC_C, KC_V)
 COMB(rbrc,     KC_RBRC,         KC_M, KC_COMM)
+COMB(lcbr,     KC_LCBR,         KC_X, KC_V)
+COMB(rcbr,     KC_RCBR,         KC_M, KC_DOT)
 COMB(lt,       KC_LT,           KC_X, KC_C, KC_V)
 COMB(gt,       KC_GT,           KC_M, KC_COMM, KC_DOT)
 
