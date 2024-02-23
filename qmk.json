@@ -1,0 +1,8 @@
+{
+    "userspace_version": "1.0",
+    "build_targets": [
+        ["preonic/rev3_drop", "radekw"],
+        ["bastardkb/charybdis/4x6/v2/splinky_3", "radekw"],
+        ["bastardkb/dilemma/4x6_4", "radekw"]
+    ]
+}
