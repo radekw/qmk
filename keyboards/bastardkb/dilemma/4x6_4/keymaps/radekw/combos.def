@@ -44,5 +44,6 @@ COMB(ctrl_u2,  C(KC_U),         KC_U, KC_P)
 
 // vim
 SUBS(viwa,    ":wa\n",          KC_V, KC_S)
-SUBS(viqa,    ":xa\n",          KC_V, KC_A)
+SUBS(vixa,    ":xa\n",          KC_V, KC_A)
+SUBS(viqa,    ":qa\n",          KC_V, KC_Q)
 
