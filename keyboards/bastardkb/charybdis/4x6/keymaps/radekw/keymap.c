@@ -8,6 +8,7 @@
 
 enum charybdis_keymap_layers {
     LAYER_QWERTY = 0,
+    LAYER_QWERTY_HRM,
     LAYER_COLEMAKDH,
     LAYER_NAV,
     LAYER_NUM,
@@ -18,6 +19,7 @@ enum charybdis_keymap_layers {
 
 enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
+    KC_QHRM,
     KC_COLE,
 };
 
@@ -32,6 +34,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
     KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,       KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
+                                  L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
+                                            KC_LALT,  KC_LGUI,    L_SYM
+  ),
+
+  [LAYER_QWERTY_HRM] = LAYOUT(
+//  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
+    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_BSPC,  HRM_A,    HRM_S,    HRM_D,    HRM_F,    KC_G,       KC_H,     HRM_J,    HRM_K,    HRM_L,    HRM_SCLN, KC_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
                                   L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
                                             KC_LALT,  KC_LGUI,    L_SYM
@@ -69,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_FN] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      CG_TOGG,  KC_QWER,  KC_COLE,  KC_NO,    DB_TOGG,  QK_BOOT,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      CG_TOGG,  KC_QWER,  KC_QHRM,  KC_COLE,  DB_TOGG,  QK_BOOT,
     KC_NO,    KC_NO,    KC_F7,    KC_F8,    KC_F9,    KC_F12,     S_D_RMOD, S_D_MOD,  KC_NO,    DPI_RMOD, DPI_MOD,  KC_NO,
     KC_NO,    KC_NO,    KC_F4,    KC_F5,    KC_F6,    KC_F11,     KC_NO,    KC_RSFT,  KC_RCTL,  KC_RALT,  KC_RGUI,  KC_NO,
     KC_NO,    KC_NO,    KC_F1,    KC_F2,    KC_F3,    KC_F10,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
@@ -132,6 +144,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_QWER:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(LAYER_QWERTY);
+            }
+            return false;
+            break;
+        case KC_QHRM:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(LAYER_QWERTY_HRM);
             }
             return false;
             break;

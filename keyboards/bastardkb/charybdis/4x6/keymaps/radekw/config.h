@@ -56,23 +56,14 @@
 #define EXTRA_LONG_COMBOS
 
 // home row mods
-#define HRMQ_F    LSFT_T(KC_F)
-#define HRMQ_D    LCTL_T(KC_D)
-#define HRMQ_S    LALT_T(KC_S)
-#define HRMQ_A    LGUI_T(KC_A)
-#define HRMQ_J    LSFT_T(KC_J)
-#define HRMQ_K    LCTL_T(KC_K)
-#define HRMQ_L    LALT_T(KC_L)
-#define HRMQ_SCLN LGUI_T(KC_SCLN)
-
-#define HRMC_T    LSFT_T(KC_T)
-#define HRMC_S    LCTL_T(KC_S)
-#define HRMC_R    LALT_T(KC_R)
-#define HRMC_A    LGUI_T(KC_A)
-#define HRMC_N    LSFT_T(KC_N)
-#define HRMC_E    LCTL_T(KC_E)
-#define HRMC_I    LALT_T(KC_I)
-#define HRMC_O    LGUI_T(KC_O)
+#define HRM_F    LSFT_T(KC_F)
+#define HRM_D    LCTL_T(KC_D)
+#define HRM_S    LALT_T(KC_S)
+#define HRM_A    LGUI_T(KC_A)
+#define HRM_J    LSFT_T(KC_J)
+#define HRM_K    LCTL_T(KC_K)
+#define HRM_L    LALT_T(KC_L)
+#define HRM_SCLN LGUI_T(KC_SCLN)
 
 // miryoku
 #define MIRYOKU_CLIPBOARD_WIN

@@ -38,7 +38,7 @@ COMB(gt,       KC_GT,           KC_M, KC_COMM, KC_DOT)
 
 // tmux prefix
 COMB(ctrl_u1,  C(KC_U),         KC_U, KC_P)
-COMB(ctrl_u2,  C(KC_U),         KC_M, KC_SLSH)
+COMB(ctrl_u2,  C(KC_U),         KC_J, KC_SCLN)
 
 // vim
 SUBS(viwa,    ":wa\n",          KC_V, KC_S)
