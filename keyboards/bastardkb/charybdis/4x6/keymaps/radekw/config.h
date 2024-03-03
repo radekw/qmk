@@ -46,6 +46,8 @@
 // tap mod
 #undef  TAPPING_TERM
 #define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY
+#undef HOLD_ON_OTHER_KEY_PRESS
 #define PERMISSIVE_HOLD
 
 // combos
@@ -56,14 +58,14 @@
 #define EXTRA_LONG_COMBOS
 
 // home row mods
-#define HRM_F    LSFT_T(KC_F)
-#define HRM_D    LCTL_T(KC_D)
-#define HRM_S    LALT_T(KC_S)
-#define HRM_A    LGUI_T(KC_A)
-#define HRM_J    LSFT_T(KC_J)
-#define HRM_K    LCTL_T(KC_K)
-#define HRM_L    LALT_T(KC_L)
-#define HRM_SCLN LGUI_T(KC_SCLN)
+#define HR_S_F   LSFT_T(KC_F)
+#define HR_C_D   LCTL_T(KC_D)
+#define HR_A_S   LALT_T(KC_S)
+#define HR_G_A   LGUI_T(KC_A)
+#define HR_S_J   LSFT_T(KC_J)
+#define HR_C_K   LCTL_T(KC_K)
+#define HR_A_L   LALT_T(KC_L)
+#define HR_G_SC  LGUI_T(KC_SCLN)
 
 // miryoku
 #define MIRYOKU_CLIPBOARD_WIN

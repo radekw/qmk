@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "g/keymap_combo.h"
+#include "features/achordion.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #include "timer.h"
@@ -43,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
-    KC_BSPC,  HRM_A,    HRM_S,    HRM_D,    HRM_F,    KC_G,       KC_H,     HRM_J,    HRM_K,    HRM_L,    HRM_SCLN, KC_QUOT,
+    KC_BSPC,  HR_G_A,   HR_A_S,   HR_C_D,   HR_S_F,   KC_G,       KC_H,     HR_S_J,   HR_C_K,   HR_A_L,   HR_G_SC,  KC_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
                                   L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
                                             KC_LALT,  KC_LGUI,    L_SYM
@@ -123,6 +124,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 }
 
 void matrix_scan_user(void) {
+    achordion_task();
     if (auto_pointer_layer_timer != 0 && TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
         auto_pointer_layer_timer = 0;
         layer_off(LAYER_POINTER);
@@ -138,8 +140,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif // POINTING_DEVICE_ENABLE
 
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_achordion(keycode, record)) { return false; }
+
     switch (keycode) {
         case KC_QWER:
             if (record->event.pressed) {
@@ -162,3 +165,46 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case L_NAV:
+            return TAPPING_TERM + 300;
+        case L_NUM:
+            return TAPPING_TERM + 300;
+        case L_FN:
+            return TAPPING_TERM + 300;
+        case HR_A_S:
+            return TAPPING_TERM + 1000;
+        case HR_A_L:
+            return TAPPING_TERM + 1000;
+        case HR_G_A:
+            return TAPPING_TERM + 1000;
+        case HR_G_SC:
+            return TAPPING_TERM + 1000;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode, keyrecord_t* other_record) {
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand in Magic Sturdy.
+  switch (tap_hold_keycode) {
+    case C_Z:
+      if (other_keycode == KC_X || other_keycode == KC_C || other_keycode == KC_V || other_keycode == KC_R) {
+        return true;
+      }
+      break;
+  }
+
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) {
+    return true;
+  }
+
+  // Otherwise, follow the opposite hands rule.
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
