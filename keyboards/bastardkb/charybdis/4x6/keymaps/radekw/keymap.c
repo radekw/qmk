@@ -22,6 +22,7 @@ enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
     KC_QHRM,
     KC_COLE,
+    USRNAME
 };
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -32,32 +33,32 @@ static uint16_t auto_pointer_layer_timer = 0;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_QWERTY] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     USRNAME,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
     KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,       KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
-                                  L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
-                                            KC_LALT,  KC_LGUI,    L_SYM
+                                  L_NAV,    KC_ENT,   L_NUM,      L_SYM,    KC_SPC,
+                                            KC_LALT,  KC_LGUI,    L_FN
   ),
 
   [LAYER_QWERTY_HRM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     USRNAME,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
     KC_BSPC,  HR_G_A,   HR_A_S,   HR_C_D,   HR_S_F,   KC_G,       KC_H,     HR_S_J,   HR_C_K,   HR_A_L,   HR_G_SC,  KC_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
-                                  L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
-                                            KC_LALT,  KC_LGUI,    L_SYM
+                                  L_NAV,    KC_ENT,   L_NUM,      L_SYM,    KC_SPC,
+                                            KC_LALT,  KC_LGUI,    L_FN
   ),
 
   [LAYER_COLEMAKDH] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
+    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     USRNAME,
     KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,       KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_BSLS,
     KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,       KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
     KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_D,     KC_V,       KC_K,     KC_H,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
-                                  L_NAV,    KC_ENT,   L_NUM,      L_FN,     KC_SPC,
-                                            KC_LALT,  KC_LGUI,    L_SYM
+                                  L_NAV,    KC_ENT,   L_NUM,      L_SYM,    KC_SPC,
+                                            KC_LALT,  KC_LGUI,    L_FN
   ),
 
   [LAYER_NAV] = LAYOUT(
@@ -92,11 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [LAYER_SYM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_LT,    KC_GT,    KC_PMNS,  KC_UNDS,  KC_PLUS,  KC_EQL,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    KC_LPRN,  KC_RPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    KC_LBRC,  KC_RBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_RSFT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    KC_LCBR,  KC_RCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-                                  KC_DOT,   KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
+    KC_NO,    KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,      KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,    KC_NO,
+    KC_NO,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,  KC_NO,
+    KC_NO,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,  KC_NO,
+    KC_NO,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,  KC_NO,
+                                  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
 
@@ -141,7 +142,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #endif // POINTING_DEVICE_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_achordion(keycode, record)) { return false; }
+    if (layer_state_is(LAYER_QWERTY_HRM)) {
+        if (!process_achordion(keycode, record)) { return false; }
+    }
+    const uint8_t mods = get_mods();
+    const uint8_t all_mods = (mods | get_weak_mods());
+    const bool shifted = all_mods & MOD_MASK_SHIFT;
+    // const bool ctrl = all_mods & MOD_MASK_CTRL;
 
     switch (keycode) {
         case KC_QWER:
@@ -162,6 +169,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
+        case USRNAME: // Type my username, or if Shift is held, my last name.
+            if (record->event.pressed) {
+                static const char username[] PROGMEM = "rwierzbicki";
+                static const char last_name[] PROGMEM = "Wierzbicki";
+                clear_weak_mods();
+                unregister_mods(mods);  // Clear mods before send_string.
+                send_string_with_delay_P(shifted ? last_name : username, TAP_CODE_DELAY);
+                register_mods(mods);  // Restore mods.
+            }
+            return false;
+            break;
     }
     return true;
 }
@@ -169,17 +187,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_NAV:
-            return TAPPING_TERM + 300;
         case L_NUM:
-            return TAPPING_TERM + 300;
         case L_FN:
             return TAPPING_TERM + 300;
         case HR_A_S:
-            return TAPPING_TERM + 1000;
         case HR_A_L:
-            return TAPPING_TERM + 1000;
         case HR_G_A:
-            return TAPPING_TERM + 1000;
         case HR_G_SC:
             return TAPPING_TERM + 1000;
         default:
@@ -189,22 +202,27 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                      uint16_t other_keycode, keyrecord_t* other_record) {
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand in Magic Sturdy.
-  switch (tap_hold_keycode) {
-    case C_Z:
-      if (other_keycode == KC_X || other_keycode == KC_C || other_keycode == KC_V || other_keycode == KC_R) {
-        return true;
-      }
-      break;
-  }
-
-  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) {
+    // Exceptionally consider the following chords as holds, even though they
+    // are on the same hand in Magic Sturdy.
+    switch (tap_hold_keycode) {
+    case L_NAV:
+    case L_NUM:
+    case L_FN:
+    case L_SYM:
     return true;
-  }
+    case C_Z:
+    switch (other_keycode) {
+        case KC_X:
+        case KC_C:
+        case KC_V:
+        case KC_R:
+        case KC_F:
+        case KC_G:
+        return true;
+    }
+    }
 
-  // Otherwise, follow the opposite hands rule.
-  return achordion_opposite_hands(tap_hold_record, other_record);
+    // Otherwise, follow the opposite hands rule.
+    return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
