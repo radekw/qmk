@@ -30,6 +30,7 @@
 
 // shortcuts
 #define A_C_D   LCA(KC_DEL)
+#define A_C_E   LCA(KC_END)
 #define A_C_TAB LCA(KC_TAB)
 #define C_Z     LCTL_T(KC_Z)
 #define C_SLSH  RCTL_T(KC_SLSH)

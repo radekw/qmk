@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
     A_C_TAB,  KC_NO,    KC_NO,    KC_TAB,   KC_LALT,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_NO,    A_C_D,
-    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,
+    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_E,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
@@ -209,17 +209,17 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     case L_NUM:
     case L_FN:
     case L_SYM:
-    return true;
-    case C_Z:
-    switch (other_keycode) {
-        case KC_X:
-        case KC_C:
-        case KC_V:
-        case KC_R:
-        case KC_F:
-        case KC_G:
         return true;
-    }
+    case C_Z:
+        switch (other_keycode) {
+            case KC_X:
+            case KC_C:
+            case KC_V:
+            case KC_R:
+            case KC_F:
+            case KC_G:
+                return true;
+        }
     }
 
     // Otherwise, follow the opposite hands rule.
