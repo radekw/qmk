@@ -22,7 +22,8 @@ enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
     KC_QHRM,
     KC_COLE,
-    USRNAME
+    USRNAME,
+    CTRXHM,
 };
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -64,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NAV] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
-    A_C_TAB,  KC_NO,    KC_NO,    KC_TAB,   KC_LALT,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
-    KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_NO,    A_C_D,
-    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_E,
+    A_C_TAB,  CTRXHM,   KC_NO,    KC_TAB,   KC_LALT,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   CTRXHM,   KC_PSCR,
+    KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
+    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
@@ -95,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_NO,    KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,      KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,    KC_NO,
     KC_NO,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,  KC_NO,
-    KC_NO,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,  KC_NO,
+    KC_BSPC,  KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,  KC_NO,
     KC_NO,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,  KC_NO,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
@@ -148,7 +149,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     const uint8_t mods = get_mods();
     const uint8_t all_mods = (mods | get_weak_mods());
     const bool shifted = all_mods & MOD_MASK_SHIFT;
-    // const bool ctrl = all_mods & MOD_MASK_CTRL;
+    const bool ctrl = all_mods & MOD_MASK_CTRL;
 
     switch (keycode) {
         case KC_QWER:
@@ -172,11 +173,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case USRNAME: // Type my username, or if Shift is held, my last name.
             if (record->event.pressed) {
                 static const char username[] PROGMEM = "rwierzbicki";
-                static const char last_name[] PROGMEM = "Wierzbicki";
+                static const char domain[] PROGMEM = ".com";
+                static const char at_domain[] PROGMEM = "@.com";
                 clear_weak_mods();
                 unregister_mods(mods);  // Clear mods before send_string.
-                send_string_with_delay_P(shifted ? last_name : username, TAP_CODE_DELAY);
+                if (shifted) {
+                    send_string_with_delay_P(domain, TAP_CODE_DELAY);
+                } else if (ctrl) {
+                    send_string_with_delay_P(at_domain, TAP_CODE_DELAY);
+                } else {
+                    send_string_with_delay_P(username, TAP_CODE_DELAY);
+                }
                 register_mods(mods);  // Restore mods.
+            }
+            return false;
+            break;
+        case CTRXHM:
+            if (record->event.pressed) {
+                tap_code16(LCA(KC_BRK));
+                wait_ms(200);
+                tap_code(KC_H);
+                wait_ms(100);
+                tap_code(KC_ENT);
             }
             return false;
             break;
