@@ -1,12 +1,10 @@
 #pragma once
 
 // layer keys
-// #define L_NAV   LT(LAYER_NAV, KC_ESC)
-// #define L_NUM   LT(LAYER_NUM, KC_TAB)
-// #define L_FN    LT(LAYER_FN, KC_DEL)
-// #define L_SYM   LT(LAYER_SYM, KC_BSPC)
-// #define PT_Q    LT(LAYER_POINTER, KC_Q)
-// #define PT_QUOT LT(LAYER_POINTER, KC_QUOT)
+#define L_NAV   LT(LAYER_NAV, KC_ESC)
+#define L_NUM   LT(LAYER_NUM, KC_TAB)
+#define L_FN    LT(LAYER_FN,  KC_DEL)
+#define L_SYM   LT(LAYER_SYM, KC_BSPC)
 
 // shortcuts
 #define A_C_DEL LCA(KC_DEL)
