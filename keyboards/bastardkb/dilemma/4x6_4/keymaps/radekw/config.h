@@ -38,15 +38,17 @@
 // layer keys
 #define L_NAV   LT(LAYER_NAV, KC_ESC)
 #define L_NUM   LT(LAYER_NUM, KC_TAB)
-#define L_FN    LT(LAYER_FN, KC_BSPC)
-#define L_SYM   LT(LAYER_SYM, KC_DEL)
-#ifdef POINTING_DEVICE_ENABLE 
+#define L_FN    LT(LAYER_FN, KC_DEL)
+#define L_SYM   LT(LAYER_SYM, KC_BSPC)
+#ifdef POINTING_DEVICE_ENABLE
 #define PT_Q    LT(LAYER_POINTER, KC_Q)
 #define PT_QUOT LT(LAYER_POINTER, KC_QUOT)
 #endif
 
 // shortcuts
-#define A_C_D   LCA(KC_DEL)
+#define A_C_DEL LCA(KC_DEL)
+#define A_C_END LCA(KC_END)
+#define A_C_BRK LCA(KC_BRK)
 #define A_C_TAB LCA(KC_TAB)
 #define C_Z     LCTL_T(KC_Z)
 #define C_SLSH  RCTL_T(KC_SLSH)
@@ -63,33 +65,26 @@
 // tap mod
 #undef  TAPPING_TERM
 #define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY
+#undef HOLD_ON_OTHER_KEY_PRESS
 #define PERMISSIVE_HOLD
 
 // combos
-#define COMBO_TERM 25
+#define COMBO_TERM 22
 #define COMBO_ONLY_FROM_LAYER 0
-#define COMBO_MUST_HOLD_MODS
-#define COMBO_HOLD_TERM 175
+// #define COMBO_MUST_HOLD_MODS
+// #define COMBO_HOLD_TERM 175
 #define EXTRA_LONG_COMBOS
 
 // home row mods
-#define HRMQ_F    LSFT_T(KC_F)
-#define HRMQ_D    LCTL_T(KC_D)
-#define HRMQ_S    LALT_T(KC_S)
-#define HRMQ_A    LGUI_T(KC_A)
-#define HRMQ_J    LSFT_T(KC_J)
-#define HRMQ_K    LCTL_T(KC_K)
-#define HRMQ_L    LALT_T(KC_L)
-#define HRMQ_SCLN LGUI_T(KC_SCLN)
-
-#define HRMC_T    LSFT_T(KC_T)
-#define HRMC_S    LCTL_T(KC_S)
-#define HRMC_R    LALT_T(KC_R)
-#define HRMC_A    LGUI_T(KC_A)
-#define HRMC_N    LSFT_T(KC_N)
-#define HRMC_E    LCTL_T(KC_E)
-#define HRMC_I    LALT_T(KC_I)
-#define HRMC_O    LGUI_T(KC_O)
+#define HR_S_F   LSFT_T(KC_F)
+#define HR_C_D   LCTL_T(KC_D)
+#define HR_A_S   LALT_T(KC_S)
+#define HR_G_A   LGUI_T(KC_A)
+#define HR_S_J   LSFT_T(KC_J)
+#define HR_C_K   LCTL_T(KC_K)
+#define HR_A_L   LALT_T(KC_L)
+#define HR_G_SC  LGUI_T(KC_SCLN)
 
 // miryoku
 #define MIRYOKU_CLIPBOARD_WIN

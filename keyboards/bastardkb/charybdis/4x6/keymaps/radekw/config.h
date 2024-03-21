@@ -12,12 +12,12 @@
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
 #else // !POINTING_DEVICE_ENABLE
-#    define DRGSCRL KC_NO
-#    define DPI_MOD KC_NO
-#    define DPI_RMOD KC_NO
-#    define S_D_MOD KC_NO
-#    define S_D_RMOD KC_NO
-#    define SNIPING KC_NO
+#define DRGSCRL KC_NO
+#define DPI_MOD KC_NO
+#define DPI_RMOD KC_NO
+#define S_D_MOD KC_NO
+#define S_D_RMOD KC_NO
+#define SNIPING KC_NO
 #endif // POINTING_DEVICE_ENABLE
 
 // layer keys

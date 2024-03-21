@@ -24,6 +24,7 @@ enum custom_keycodes {
     KC_COLE,
     USRNAME,
     CTRXHM,
+    CTRXCAD,
 };
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -65,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NAV] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
-    A_C_TAB,  CTRXHM,   KC_NO,    KC_TAB,   KC_LALT,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   CTRXHM,   KC_PSCR,
+    A_C_TAB,  CTRXHM,   CTRXCAD,  KC_TAB,   KC_LALT,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   CTRXHM,   KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
-    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    KC_NO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
+    KC_NO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
@@ -191,10 +192,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CTRXHM:
             if (record->event.pressed) {
                 tap_code16(LCA(KC_BRK));
-                wait_ms(200);
+                wait_ms(250);
                 tap_code(KC_H);
-                wait_ms(100);
+                wait_ms(200);
                 tap_code(KC_ENT);
+            }
+            return false;
+            break;
+        case CTRXCAD:
+            if (record->event.pressed) {
+                tap_code16(LCA(KC_BRK));
+                wait_ms(250);
+                tap_code(KC_C);
             }
             return false;
             break;
