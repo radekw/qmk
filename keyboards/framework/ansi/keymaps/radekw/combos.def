@@ -1,10 +1,3 @@
-// layers
-// COMB(l_nav,    MO(1),      C_Z,    KC_X)
-// COMB(l_num,    MO(2),      KC_V,   KC_B)
-// COMB(l_fn,     MO(3),      KC_DOT, C_SLSH)
-// COMB(L_sym,    MO(4),      KC_N,   KC_M)
-// COMB(l_sym2,   MO(4),      KC_C,   KC_B)
-
 // keys
 COMB(bspc,     KC_BSPC,    KC_S,   KC_D)
 COMB(del,      KC_DEL,     KC_D,   KC_F)
