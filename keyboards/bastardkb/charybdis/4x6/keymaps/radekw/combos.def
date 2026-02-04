@@ -7,13 +7,13 @@ COMB(l_sym2,   MO(6),      KC_C,   KC_B)
 COMB(l_fn2,    MO(5),      LT(2, KC_BSPC), KC_SPC)
 
 // mouse buttons
-COMB(btn1,     KC_BTN1,    KC_W, KC_E)
-COMB(btn2,     KC_BTN2,    KC_E, KC_R)
-COMB(btn3,     KC_BTN3,    KC_W, KC_R)
+COMB(btn1,     MS_BTN1,    KC_W, KC_E)
+COMB(btn2,     MS_BTN2,    KC_E, KC_R)
+COMB(btn3,     MS_BTN3,    KC_W, KC_R)
 COMB(drgscrl,  DRGSCRL,    KC_W, KC_E, KC_R)
 COMB(sniping,  SNIPING,    KC_Q, KC_R)
-COMB(btn4,     KC_BTN4,    KC_Q, KC_W)
-COMB(btn5,     KC_BTN5,    KC_R, KC_T)
+COMB(btn4,     MS_BTN4,    KC_Q, KC_W)
+COMB(btn5,     MS_BTN5,    KC_R, KC_T)
 
 // keys
 COMB(bspc,     KC_BSPC,    KC_S,   KC_D)

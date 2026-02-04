@@ -110,11 +110,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_POINTER] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      S_D_RMOD, S_D_MOD,  KC_NO,    DPI_RMOD, DPI_MOD,  KC_NO,
-    KC_NO,    KC_TRNS,  DRGSCRL,  KC_BTN3,  KC_BTN1,  KC_BTN2,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,    KC_TRNS,  DRGSCRL,  MS_BTN3,  MS_BTN1,  MS_BTN2,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,    KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  DRGSCRL,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    EE_CLR,   KC_NO,    KC_NO,    KC_BTN4,  KC_BTN5,  SNIPING,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-                                  KC_BTN3,  KC_BTN1,  KC_BTN2,    KC_NO,    KC_NO,
-                                            KC_BTN4,  KC_BTN5,    KC_NO
+    EE_CLR,   KC_NO,    KC_NO,    MS_BTN4,  MS_BTN5,  SNIPING,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+                                  MS_BTN3,  MS_BTN1,  MS_BTN2,    KC_NO,    KC_NO,
+                                            MS_BTN4,  MS_BTN5,    KC_NO
   ),
 };
 
