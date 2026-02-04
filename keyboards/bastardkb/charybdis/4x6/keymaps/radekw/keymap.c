@@ -26,9 +26,9 @@ enum custom_keycodes {
     KC_QHRM,
     KC_COLE,
     USRNAME,
-    CTRXHM,
-    CTRXCAD,
     ALT_TAB,
+    // CTRXHM,
+    // CTRXCAD,
 };
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NAV] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
-    A_C_TAB,  CTRXHM,   CTRXCAD,  KC_NO,    ALT_TAB,  KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   CTRXHM,   KC_PSCR,
+    ALT_TAB,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
     KC_NO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
@@ -80,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NUM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_BSPC,
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MINS,  KC_7,     KC_8,     KC_9,     KC_SLSH,  KC_COMM,
-    KC_NO,    KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,    S(KC_EQL),  KC_4,     KC_5,     KC_6,   S(KC_8),    KC_DOT,
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_EQL,   KC_1,     KC_2,     KC_3,     KC_0,     KC_DOT,
+    QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_COMM,  KC_5,     KC_8,     KC_9,   S(KC_EQL),  KC_MINS,
+    KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_DOT,   KC_4,     KC_5,     KC_6,   S(KC_8),    KC_SLSH,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_0,     KC_1,     KC_2,     KC_3,     KC_0,     KC_EQL,
                                   KC_DOT,   KC_TRNS,  KC_TRNS,    KC_DOT,   KC_SPC,
                                             KC_TRNS,  KC_TRNS,    KC_COMM
   ),
@@ -99,10 +99,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [LAYER_SYM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_NO,    KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,      KC_LT,    KC_NO,    KC_NO,    KC_NO,    KC_GT,    QK_BOOT,
-    KC_NO,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,    KC_LPRN,  KC_AMPR,  KC_ASTR,  KC_PIPE,  KC_RPRN,  KC_NO,
-    KC_BSPC,  KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,    KC_LBRC,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_RBRC,  KC_NO,
-    KC_NO,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,    KC_LCBR,  KC_EXLM,  KC_AT,    KC_HASH,  KC_RCBR,  KC_NO,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
+    KC_NO,    KC_NO,    KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
+    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,    KC_NO,    KC_EXLM,  KC_AT,    KC_HASH,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
@@ -193,24 +193,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case CTRXHM:
-            if (record->event.pressed) {
-                tap_code16(LCA(KC_BRK));
-                wait_ms(250);
-                tap_code(KC_H);
-                wait_ms(200);
-                tap_code(KC_ENT);
-            }
-            return false;
-            break;
-        case CTRXCAD:
-            if (record->event.pressed) {
-                tap_code16(LCA(KC_BRK));
-                wait_ms(250);
-                tap_code(KC_C);
-            }
-            return false;
-            break;
         case ALT_TAB:
             if (record->event.pressed) {
                 if (!is_alt_tab_active) {
@@ -223,6 +205,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             break;
+        // case CTRXHM:
+        //     if (record->event.pressed) {
+        //         tap_code16(LCA(KC_BRK));
+        //         wait_ms(250);
+        //         tap_code(KC_H);
+        //         wait_ms(200);
+        //         tap_code(KC_ENT);
+        //     }
+        //     return false;
+        //     break;
+        // case CTRXCAD:
+        //     if (record->event.pressed) {
+        //         tap_code16(LCA(KC_BRK));
+        //         wait_ms(250);
+        //         tap_code(KC_C);
+        //     }
+        //     return false;
+        //     break;
     }
     return true;
 }
