@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NUM] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_BSPC,
-    QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_COMM,  KC_5,     KC_8,     KC_9,   S(KC_EQL),  KC_MINS,
+    QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_COMM,  KC_7,     KC_8,     KC_9,   S(KC_EQL),  KC_MINS,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_DOT,   KC_4,     KC_5,     KC_6,   S(KC_8),    KC_SLSH,
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_0,     KC_1,     KC_2,     KC_3,     KC_0,     KC_EQL,
                                   KC_DOT,   KC_TRNS,  KC_TRNS,    KC_DOT,   KC_SPC,
@@ -177,9 +177,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case USRNAME: // Type my username, or if Shift is held, my last name.
             if (record->event.pressed) {
-                static const char username[] PROGMEM = "rwierzbicki";
-                static const char domain[] PROGMEM = ".com";
-                static const char at_domain[] PROGMEM = "@.com";
+                static const char username[] PROGMEM = "radekw";
+                static const char domain[] PROGMEM = "domain.com";
+                static const char at_domain[] PROGMEM = "@domain.com";
                 clear_weak_mods();
                 unregister_mods(mods);  // Clear mods before send_string.
                 if (shifted) {

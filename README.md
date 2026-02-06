@@ -7,9 +7,12 @@ qmk setup --home ~/Development/keyboards/qmk_firmware
 qmk config user.overlay_dir=$(realpath .)
 
 qmk compile -c -kb preonic/rev3_drop -km radekw
+
+# to build charybdis, run `qmk setup --branch 0.29.12`
 qmk compile -c -kb bastardkb/charybdis/4x6/v2/splinky_3 -km radekw
 qmk compile -c -kb bastardkb/charybdis/3x6/v2/splinky_3 -km radekw
 qmk compile -c -kb bastardkb/dilemma/4x6_4 -km radekw
+
 qmk compile -c -kb ploopyco/madromys -km radekw
 
 qmk compile -c -kb sofle/rev1 -km radekw -e CONVERT_TO=kb2040

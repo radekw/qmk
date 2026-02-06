@@ -78,7 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case USRNAME: // Type my username, or if Shift is held, my last name.
             if (record->event.pressed) {
-                static const char username[] PROGMEM = "rwierzbicki";
+                static const char username[] PROGMEM = "radekw";
                 static const char domain[] PROGMEM = ".com";
                 static const char at_domain[] PROGMEM = "@.com";
                 clear_weak_mods();
