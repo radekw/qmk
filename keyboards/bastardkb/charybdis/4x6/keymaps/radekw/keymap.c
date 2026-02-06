@@ -15,7 +15,9 @@ enum charybdis_keymap_layers {
     LAYER_NUM,
     LAYER_FN,
     LAYER_SYM,
+#ifdef POINTING_DEVICE_ENABLE
     LAYER_POINTER,
+#endif
 };
 
 bool is_alt_tab_active = false;
@@ -69,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_VOLD,  KC_MUTE,  KC_VOLU,
     ALT_TAB,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
     KC_NO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
@@ -83,8 +85,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_COMM,  KC_7,     KC_8,     KC_9,   S(KC_EQL),  KC_MINS,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_DOT,   KC_4,     KC_5,     KC_6,   S(KC_8),    KC_SLSH,
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_0,     KC_1,     KC_2,     KC_3,     KC_0,     KC_EQL,
-                                  KC_DOT,   KC_TRNS,  KC_TRNS,    KC_DOT,   KC_SPC,
-                                            KC_TRNS,  KC_TRNS,    KC_COMM
+                                  KC_NO,    KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_SPC,
+                                            KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
 
   [LAYER_FN] = LAYOUT(
@@ -101,12 +103,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
     KC_NO,    KC_NO,    KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
-    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_RSFT,  KC_RCTL,  KC_RALT,  KC_RGUI,  KC_NO,
     KC_NO,    KC_NO,    KC_EXLM,  KC_AT,    KC_HASH,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,
                                             KC_TRNS,  KC_TRNS,    KC_TRNS
   ),
 
+#ifdef POINTING_DEVICE_ENABLE
   [LAYER_POINTER] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      S_D_RMOD, S_D_MOD,  KC_NO,    DPI_RMOD, DPI_MOD,  KC_NO,
@@ -116,6 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   MS_BTN3,  MS_BTN1,  MS_BTN2,    KC_NO,    KC_NO,
                                             MS_BTN4,  MS_BTN5,    KC_NO
   ),
+#endif
 };
 
 #ifdef POINTING_DEVICE_ENABLE

@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL,  KC_NO,    KC_LALT,  L_NUM,    L_NAV,    KC_SPC,   KC_SPC,   L_NUM,    L_SYM,    KC_LGUI,  KC_NO,    KC_RCTL
 ),
 [_NAV] = LAYOUT_preonic_grid(
-    KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MPLY,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_VOLD,  KC_MUTE,  KC_VOLU,  KC_MPRV,  KC_MPLY,  KC_MNXT,
     ALT_TAB,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
     KC_NO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYM] = LAYOUT_preonic_grid(
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,    KC_NO,    KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,    KC_NO,    KC_RSFT,  KC_RCTL,  KC_RALT,  KC_RGUI,  KC_NO,
     KC_NO,    KC_NO,    KC_EXLM,  KC_AT,    KC_HASH,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,    KC_NO,    KC_NO,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_NO,    KC_NO,    KC_NO
 )
