@@ -22,8 +22,8 @@ COMB(bsls,     KC_BSLS,    KC_O, KC_P)
 COMB(pipe,     KC_PIPE,    KC_I, KC_P)
 COMB(grv,      KC_GRV,     KC_A, KC_S)
 COMB(tilde,    KC_TILD,    KC_A, KC_D)
-COMB(quote,    KC_QUOT,    KC_L, KC_SCLN)
-COMB(quote,  S(KC_QUOT),   KC_K, KC_SCLN)
+COMB(quot,     KC_QUOT,    KC_L, KC_SCLN)
+COMB(dquot,  S(KC_QUOT),   KC_K, KC_SCLN)
 
 // parens and brackets
 COMB(lprn,     KC_LPRN,    KC_X,    KC_C)
