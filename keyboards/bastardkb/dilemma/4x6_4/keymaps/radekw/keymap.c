@@ -1,14 +1,16 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "g/keymap_combo.h"
+#include "keymap_extras/keymap_uk.h"
 
 enum dilemma_keymap_layers {
     LAYER_QWERTY = 0,
-    LAYER_COLEMAKDH,
+    LAYER_QWERTY_UK,
     LAYER_NAV,
     LAYER_NUM,
     LAYER_FN,
     LAYER_SYM,
+    LAYER_SYM_UK,
 #ifdef POINTING_DEVICE_ENABLE
     LAYER_POINTER,
 #endif
@@ -19,10 +21,8 @@ uint16_t alt_tab_timer = 0;
 
 enum custom_keycodes {
     KC_QWER = SAFE_RANGE,
-    KC_COLE,
+    KC_QWUK,
     USRNAME,
-    CTRXHM,
-    CTRXCAD,
     ALT_TAB,
 };
 
@@ -37,19 +37,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_LALT,  L_NAV,    KC_ENT,   L_NUM,      L_SYM,    KC_SPC,   L_FN,     KC_LGUI
   ),
 
-  [LAYER_COLEMAKDH] = LAYOUT(
+  [LAYER_QWERTY_UK] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     USRNAME,
-    KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,       KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_BSLS,
-    KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,       KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
-    KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_D,     KC_V,       KC_K,     KC_H,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
-                        KC_LALT,  L_NAV,    KC_ENT,   L_NUM,      L_SYM,    KC_SPC,   L_FN,     KC_LGUI
+    UK_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,       KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     USRNAME,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,       KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     UK_BSLS,
+    KC_BSPC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,       KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  C_Z,      KC_X,     KC_C,     KC_V,     KC_B,       KC_N,     KC_M,     KC_COMM,  KC_DOT,   C_SLSH,   SC_SENT,
+                        KC_LALT,  L_NAV,    KC_ENT,   L_NUM,      L_SYM_UK, KC_SPC,   L_FN,     KC_LGUI
   ),
+  // \~ `¬
 
   [LAYER_NAV] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_VOLD,  KC_MUTE,  KC_VOLU,
-    ALT_TAB,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   CTRXHM,   KC_PSCR,
+    ALT_TAB,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    KC_PSCR,
     KC_BSPC,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  A_C_BRK,  A_C_DEL,
     KC_NO,    U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,      U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    A_C_END,
                         KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
@@ -66,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_FN] = LAYOUT(
 //  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      CG_TOGG,  KC_QWER,  KC_COLE,  KC_COLE,  DB_TOGG,  KC_NO,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      CG_TOGG,  KC_QWER,  KC_QWUK,  KC_QWUK,  DB_TOGG,  KC_NO,
 #ifdef POINTING_DEVICE_ENABLE
     KC_NO,    KC_NO,    KC_F7,    KC_F8,    KC_F9,    KC_F12,     S_D_RMOD, S_D_MOD,  KC_NO,    DPI_RMOD, DPI_MOD,  KC_NO,
 #else
@@ -83,6 +84,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,    KC_NO,    KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
     KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_RSFT,  KC_RCTL,  KC_RALT,  KC_RGUI,  KC_NO,
     KC_NO,    KC_NO,    KC_EXLM,  KC_AT,    KC_HASH,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+                        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+  ),
+
+  [LAYER_SYM_UK] = LAYOUT(
+//  --------  --------  --------  --------  --------  --------    --------  --------  --------  --------  --------  --------
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
+    KC_NO,    KC_NO,    KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    QK_BOOT,
+    KC_BSPC,  KC_NO,    KC_DLR,   KC_PERC,  KC_CIRC,  KC_NO,      KC_NO,    KC_RSFT,  KC_RCTL,  KC_RALT,  KC_RGUI,  KC_NO,
+    KC_NO,    KC_NO,    KC_EXLM,  UK_AT,    UK_HASH,  KC_NO,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
                         KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
@@ -105,6 +115,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     const bool shifted = all_mods & MOD_MASK_SHIFT;
     const bool ctrl = all_mods & MOD_MASK_CTRL;
 
+    if (get_highest_layer(default_layer_state) == LAYER_QWERTY_UK && record->event.pressed && shifted) {
+        switch (keycode) {
+            case KC_2:    // US=@  UK=" → send UK_AT (S(QUOT)) to get @
+                del_mods(MOD_MASK_SHIFT);
+                tap_code16(UK_AT);
+                register_mods(mods & MOD_MASK_SHIFT);
+                return false;
+            case KC_3:    // US=#  UK=£ → send UK_HASH (NUHS) to get #
+                del_mods(MOD_MASK_SHIFT);
+                tap_code16(UK_HASH);
+                register_mods(mods & MOD_MASK_SHIFT);
+                return false;
+            case KC_QUOT: // US="  UK=@ → send UK_DQUO (S(2)) to get "
+                del_mods(MOD_MASK_SHIFT);
+                tap_code16(UK_DQUO);
+                register_mods(mods & MOD_MASK_SHIFT);
+                return false;
+            case UK_GRV:  // US=~  UK=¬ → send UK_TILD (S(NUHS)) to get ~
+                del_mods(MOD_MASK_SHIFT);
+                tap_code16(UK_TILD);
+                register_mods(mods & MOD_MASK_SHIFT);
+                return false;
+        }
+    }
+
     switch (keycode) {
         case KC_QWER:
             if (record->event.pressed) {
@@ -112,9 +147,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case KC_COLE:
+        case KC_QWUK:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(LAYER_COLEMAKDH);
+                set_single_persistent_default_layer(LAYER_QWERTY_UK);
             }
             return false;
             break;
@@ -133,24 +168,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     send_string_with_delay_P(username, TAP_CODE_DELAY);
                 }
                 register_mods(mods);  // Restore mods.
-            }
-            return false;
-            break;
-        case CTRXHM:
-            if (record->event.pressed) {
-                tap_code16(LCA(KC_BRK));
-                wait_ms(250);
-                tap_code(KC_H);
-                wait_ms(200);
-                tap_code(KC_ENT);
-            }
-            return false;
-            break;
-        case CTRXCAD:
-            if (record->event.pressed) {
-                tap_code16(LCA(KC_BRK));
-                wait_ms(250);
-                tap_code(KC_C);
             }
             return false;
             break;
